@@ -14,7 +14,7 @@
 
 <body ng-app="myApp">
     <div class="container is-mobile">
-        <nav class="navbar is-mobile" role="navigation">
+        <nav class="navbar is-mobile is-primary" role="navigation">
             <div class="navbar-menu is-active">
                 <div class="nav-center">
                     <a class="navbar-item" ng-href="/">Home</a>
@@ -27,12 +27,19 @@
     </div>
 
     <div class="container is-mobile" ng-controller="topicsController">
-        <nav class="navbar is-mobile">
+        <nav class="navbar is-mobile is-dark">
             <div class="navbar-menu is-active">
                 <div class="nav-center">
-                    <a href="" class="navbar-item" ng-repeat="topic in topics">{{ topic.title }}</a>
+                    <a ng-repeat=" topic in topics" ng-href="/topics/{{topic.id}}" class="navbar-item"> {{ topic.title }} </a>
                 </div>
             </div>
+
+
+            <div class="navbar-end">
+                <a class="navbar-item">New Topic</a>
+            </div>
+
+
 
         </nav>
     </div>
@@ -48,7 +55,9 @@
     <script src="./js/controllers/usersController.js" type="text/javascript"></script>
     <script src="./js/controllers/registerController.js" type="text/javascript"></script>
     <script src="./js/controllers/topicsController.js" type="text/javascript"></script>
-    <script src="./js/services/TopicsService.js" type="text/javascript"></script>
+    <script src="./js/controllers/threadController.js" type="text/javascript"></script>
+    <script src="./js/services/topicsService.js" type="text/javascript"></script>
+    <script src="./js/services/usersService.js" type="text/javascript"></script>
 
 </body>
 

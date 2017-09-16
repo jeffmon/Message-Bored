@@ -23,6 +23,10 @@ angular
           templateUrl: "users.html",
           controller: "usersController"
         })
+        .when("/topics/:id", {
+          templateUrl: "thread.html",
+          controller: "topicsController"
+        })
         .otherwise({
           template: `<h1>404</h1>`
         });

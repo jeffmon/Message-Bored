@@ -1,0 +1,13 @@
+<div class="container">
+    <h1 class="hero">{{ currentTopic.title }}</h1>
+    <article class="media">
+        <div class="media-content">
+            <div class="content">
+                <p ng-repeat="message in currentTopic.messages">
+                    <strong>{{ message.user }}</strong>
+                    <br> {{ message.message }}
+                </p>
+            </div>
+        </div>
+    </article>
+</div>
