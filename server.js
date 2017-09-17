@@ -41,6 +41,22 @@ app
     });
   });
 
+app.get(`/api/user/:id`, (req, res) => {
+  User.findAll({
+    where: {
+      id: parseInt(req.params.id)
+    },
+    include: [
+      {
+        model: Message,
+        as: "Messages"
+      }
+    ]
+  }).then(messages => {
+    res.json(messages);
+  });
+});
+
 app
   .route("/api/topics")
   .post((req, res) => {

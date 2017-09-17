@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
     });
     User.hasMany(models.Message, {
       foreignKey: "author_id",
-      as: "Author"
+      as: "Messages"
     });
   };
 
