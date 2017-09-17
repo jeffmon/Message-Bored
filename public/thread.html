@@ -1,13 +1,32 @@
-<div class="container">
-    <h1 class="hero">{{ currentTopic.title }}</h1>
+<div class="container" id="thread">
+    <section class="hero is-warning">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">{{ currentTopic.name }}</h1>
+            </div>
+        </div>
+    </section>
+    <br>
     <article class="media">
         <div class="media-content">
             <div class="content">
                 <p ng-repeat="message in currentTopic.messages">
                     <strong>{{ message.user }}</strong>
-                    <br> {{ message.message }}
+                    <br> {{ message.body }}
                 </p>
             </div>
         </div>
     </article>
+    <br>
+    <div class="field">
+        <label class="label">Message</label>
+        <div class="control">
+            <textarea class="textarea" placeholder="New message"></textarea>
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <button class="button is-primary">Submit</button>
+        </div>
+    </div>
 </div>

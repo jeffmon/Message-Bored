@@ -3,26 +3,26 @@ angular.module("myApp").service("TopicsService", [
     var topics = [
       {
         id: 1,
-        title: "First Topic",
+        name: "First Topic",
         createdyBy: "Jeff",
         messages: [
           {
-            message: "This is the first message",
+            body: "This is the first message",
             user: "DevLeague"
           },
           {
-            message: "This is the second message posted!",
+            body: "This is the second message posted!",
             user: "Jeff"
           }
         ]
       },
       {
         id: 2,
-        title: "Second Topic",
+        name: "Second Topic",
         createdyBy: "DevLeague",
         messages: [
           {
-            message: "This is the first message of the second topic",
+            body: "This is the first message of the second topic",
             user: "Jeff"
           }
         ]

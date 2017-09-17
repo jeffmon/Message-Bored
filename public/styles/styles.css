@@ -9,3 +9,7 @@
 #topicsLine {
   display: inline;
 }
+
+#thread {
+  margin: 3rem;
+}
