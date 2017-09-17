@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
     });
     Message.belongsTo(models.Topic, {
       foreignKey: "topic_id",
-      as: "Topic"
+      as: "topicName"
     });
   };
 

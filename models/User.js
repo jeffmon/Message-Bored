@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
   User.associate = function(models) {
     User.hasMany(models.Topic, {
       foreignKey: "created_by",
-      as: "Topic"
+      as: "Topics"
     });
     User.hasMany(models.Message, {
       foreignKey: "author_id",
