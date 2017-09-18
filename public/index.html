@@ -21,7 +21,7 @@
                     <a class="navbar-item" ng-href="/" ng-if="isNotLoggedIn">Login</a>
                     <a class="navbar-item" ng-href="/register" ng-if="isNotLoggedIn">Register</a>
                     <a class="navbar-item" ng-href="/users">Users</a>
-                    <a class="navbar-item" ng-click="logOut()">Log Out</a>
+                    <a class="navbar-item" ng-click="logOut()" ng-if="isLoggedIn">Log Out</a>
                 </div>
 
             </div>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="container is-mobile" ng-controller="topicsController">
-        <nav class="navbar is-mobile is-dark">
+        <nav class="navbar is-mobile is-dark" ng-if="isLoggedIn">
             <div class="navbar-menu is-active">
                 <div class="nav-center">
                     <a ng-repeat=" topic in topics" ng-href="/topics/{{topic.id}}" class="navbar-item"> {{ topic.name }} </a>

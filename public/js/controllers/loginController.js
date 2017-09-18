@@ -6,11 +6,13 @@ angular.module("myApp").controller("loginController", [
   function($scope, LoginService, localStorageService, $window) {
     $scope.user = null;
     $scope.isNotLoggedIn = true;
+    $scope.isLoggedIn = false;
 
     (function(key) {
       $scope.user = localStorageService.keys()[0];
       if ($scope.user) {
         $scope.isNotLoggedIn = false;
+        $scope.isLoggedIn = true;
       }
     })();
 

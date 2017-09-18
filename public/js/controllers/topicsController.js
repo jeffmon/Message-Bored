@@ -2,10 +2,18 @@ angular.module("myApp").controller("topicsController", [
   "$scope",
   "TopicsService",
   "$location",
-  function($scope, TopicsService, $location) {
+  "localStorageService",
+  function($scope, TopicsService, $location, localStorageService) {
     $scope.topics = [];
     $scope.currentTopic = [];
     $scope.currentMessages = [];
+    $scope.isLoggedIn = false;
+
+    (function() {
+      if (localStorageService.keys().length > 0) {
+        $scope.isLoggedIn = true;
+      }
+    })();
 
     TopicsService.getTopics().then(topics => {
       $scope.topics = topics;
