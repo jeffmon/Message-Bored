@@ -1,7 +1,11 @@
 angular.module("myApp").controller("usersController", [
   "$scope",
-  "UsersService",
-  function($scope, UsersService) {
-    $scope.users = UsersService.users;
+  "usersService",
+  function($scope, usersService) {
+    $scope.users = [];
+
+    usersService.getUsers().then(users => {
+      $scope.users = users;
+    });
   }
 ]);

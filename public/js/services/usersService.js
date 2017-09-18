@@ -1,19 +1,12 @@
-angular.module("myApp").service("UsersService", [
-  function() {
-    var users = [
-      {
-        name: "Jeffrey"
-      },
-      {
-        name: "DevLeague"
-      },
-      {
-        name: "Bob"
-      }
-    ];
-
+angular.module("myApp").service("usersService", [
+  "$http",
+  function($http) {
     return {
-      users: users
+      getUsers: function() {
+        return $http.get("/api/users").then(function(res) {
+          return res.data;
+        });
+      }
     };
   }
 ]);

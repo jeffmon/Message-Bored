@@ -41,6 +41,19 @@ app
     });
   });
 
+app.get(`/api/find/:user`, (req, res) => {
+  function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  User.findOne({
+    where: {
+      name: capitalize(req.params.user)
+    }
+  }).then(user => {
+    res.json(user);
+  });
+});
+
 app.get(`/api/user/:id`, (req, res) => {
   User.findAll({
     where: {
@@ -112,6 +125,27 @@ app.get("/api/messages/latest", (req, res) => {
         as: "topicName"
       }
     ]
+  }).then(messages => {
+    res.json(messages);
+  });
+});
+
+app.get("/api/messages/by-topic/:topic_id", (req, res) => {
+  Message.findAll({
+    where: {
+      topic_id: req.params.topic_id
+    },
+    include: [
+      {
+        model: User,
+        as: "Author"
+      },
+      {
+        model: Topic,
+        as: "topicName"
+      }
+    ],
+    order: [["createdAt"]]
   }).then(messages => {
     res.json(messages);
   });

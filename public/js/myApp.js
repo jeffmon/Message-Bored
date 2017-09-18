@@ -1,4 +1,4 @@
-angular.module("myApp", ["ngRoute"]);
+angular.module("myApp", ["ngRoute", "LocalStorageModule"]);
 
 angular
   .module("myApp")
@@ -7,11 +7,11 @@ angular
     "$locationProvider",
     function($routeProvider, $locationProvider) {
       $routeProvider
-        .when("/", {
+        .when("/home", {
           templateUrl: "home.html",
           controller: "homeController"
         })
-        .when("/login", {
+        .when("/", {
           templateUrl: "login.html",
           controller: "loginController"
         })
@@ -28,10 +28,36 @@ angular
           controller: "topicsController"
         })
         .otherwise({
-          template: `<h1>404</h1>`
+          redirectTo: "/"
         });
 
       $locationProvider.html5Mode(true);
     }
   ])
-  .run(["$rootScope", function($rootScope) {}]);
+  .run([
+    "$rootScope",
+    "localStorageService",
+    "$location",
+    function($rootScope, localStorageService, $location) {
+      $rootScope.userProfile = null;
+      (function(key) {
+        if (localStorageService.keys().length === 0) {
+          $rootScope.userProfile = null;
+        } else {
+          $rootScope.userProfile = localStorageService.keys();
+        }
+      })();
+      console.log($rootScope.userProfile);
+      $rootScope.$on("$routeChangeStart", function(event, next, current) {
+        if ($rootScope.userProfile === null) {
+          if (
+            next.templateUrl === "login.html" ||
+            next.templateUrl === "register.html"
+          ) {
+          } else {
+            $location.path("/login");
+          }
+        }
+      });
+    }
+  ]);

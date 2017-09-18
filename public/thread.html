@@ -10,8 +10,8 @@
     <article class="media">
         <div class="media-content">
             <div class="content">
-                <p ng-repeat="message in currentTopic.messages">
-                    <strong>{{ message.user }}</strong>
+                <p ng-repeat="message in currentMessages">
+                    <strong>{{ message.Author.name }}</strong>
                     <br> {{ message.body }}
                 </p>
             </div>
