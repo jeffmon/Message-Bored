@@ -4,7 +4,15 @@ angular.module("myApp").controller("loginController", [
   "localStorageService",
   "$window",
   function($scope, LoginService, localStorageService, $window) {
-    $scope.user = "";
+    $scope.user = null;
+    $scope.isNotLoggedIn = true;
+
+    (function(key) {
+      $scope.user = localStorageService.keys()[0];
+      if ($scope.user) {
+        $scope.isNotLoggedIn = false;
+      }
+    })();
 
     $scope.login = function() {
       if ($scope.user.length > 0) {
@@ -20,6 +28,11 @@ angular.module("myApp").controller("loginController", [
       } else {
         console.log(null);
       }
+    };
+
+    $scope.logOut = function() {
+      $window.location.href = "/";
+      return localStorageService.clearAll();
     };
   }
 ]);

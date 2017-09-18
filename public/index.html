@@ -13,15 +13,17 @@
 </head>
 
 <body ng-app="myApp">
-    <div class="container is-mobile">
+    <div class="container is-mobile" ng-controller="loginController">
         <nav class="navbar is-mobile is-primary" role="navigation">
             <div class="navbar-menu is-active">
                 <div class="nav-center">
                     <a class="navbar-item" ng-href="/home">Home</a>
-                    <a class="navbar-item" ng-href="/">Login</a>
-                    <a class="navbar-item" ng-href="/register">Register</a>
+                    <a class="navbar-item" ng-href="/" ng-if="isNotLoggedIn">Login</a>
+                    <a class="navbar-item" ng-href="/register" ng-if="isNotLoggedIn">Register</a>
                     <a class="navbar-item" ng-href="/users">Users</a>
+                    <a class="navbar-item" ng-click="logOut()">Log Out</a>
                 </div>
+
             </div>
         </nav>
     </div>
