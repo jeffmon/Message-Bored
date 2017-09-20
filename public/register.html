@@ -9,7 +9,7 @@
             <div class="field">
                 <label class="label">Username</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input type="text" class="input is-success" placeholder="Text input">
+                    <input type="text" class="input is-success" placeholder="Text input" ng-model="user">
                     <span class="icon is-small is-left">
                         <i class="fa fa-user"></i>
                     </span>
@@ -21,6 +21,6 @@
         </div>
     </div>
     <footer class="card-footer">
-        <a href="" class="card-footer-item">Register New</a>
+        <a href="" class="card-footer-item" ng-click="register()">Register New</a>
     </footer>
 </div>
