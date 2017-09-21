@@ -27,8 +27,10 @@ angular.module("myApp").controller("topicsController", [
     var splitId = $location.$$path.split("/");
     var currentTopicId = parseInt(splitId[splitId.length - 1]);
 
-    TopicsService.getMessages(currentTopicId).then(messages => {
-      $scope.currentMessages = messages;
-    });
+    $scope.loadMessages = function() {
+      TopicsService.getMessages(currentTopicId).then(messages => {
+        $scope.currentMessages = messages;
+      });
+    };
   }
 ]);

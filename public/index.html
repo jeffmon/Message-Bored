@@ -29,7 +29,7 @@
     </div>
 
     <div class="container is-mobile" ng-controller="topicsController">
-        <nav class="navbar is-mobile is-dark" ng-if="isLoggedIn">
+        <nav class="navbar is-mobile is-dark">
             <div class="navbar-menu is-active">
                 <div class="nav-center">
                     <a ng-repeat=" topic in topics" ng-href="/topics/{{topic.id}}" class="navbar-item"> {{ topic.name }} </a>
@@ -37,7 +37,7 @@
             </div>
 
 
-            <div class="navbar-end">
+            <div class="navbar-end" ng-if="isLoggedIn">
                 <a class="navbar-item">New Topic</a>
             </div>
 

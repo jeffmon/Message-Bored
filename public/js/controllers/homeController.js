@@ -1,6 +1,3 @@
-angular.module("myApp").controller("homeController", [
-  "$scope",
-  function($scope) {
-    console.log("test");
-  }
-]);
+angular
+  .module("myApp")
+  .controller("homeController", ["$scope", function($scope) {}]);
