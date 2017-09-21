@@ -9,12 +9,12 @@
             <div class="field">
                 <label class="label">Topic</label>
                 <div class="control">
-                    <input type="text" class="input is-success" placeholder="Topic">
+                    <input type="text" class="input is-success" placeholder="Topic" ng-model="currentTopic">
                 </div>
             </div>
         </div>
     </div>
     <footer class="card-footer">
-        <a href="" class="card-footer-item">Submit</a>
+        <a href="" class="card-footer-item" ng-click="newTopic()">Submit</a>
     </footer>
 </div>

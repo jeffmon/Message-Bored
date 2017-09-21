@@ -76,11 +76,15 @@ app
     Topic.findOrCreate({
       where: {
         name: req.body.name,
-        created_by: parseInt(req.body.user) //ID of the current user
+        created_by: parseInt(req.body.created_by) //ID of the current user
       }
     }).then(() => {
-      Topic.findAll().then(topics => {
-        res.json({ topics: topics, name: req.body.name });
+      Topic.findOne({
+        where: {
+          name: req.body.name
+        }
+      }).then(topic => {
+        res.json(topic);
       });
     });
   })

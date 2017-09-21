@@ -3,6 +3,7 @@
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title">{{ currentTopic.name }}</h1>
+                <h2 class="subtitle">By: {{currentAuthor}}</h2>
             </div>
         </div>
     </section>
@@ -11,7 +12,7 @@
         <div class="media-content">
             <div class="content">
                 <p ng-repeat="message in currentMessages">
-                    <strong>{{ message.Author.name }}</strong>
+                    <strong>{{ message.Author.name }}</strong> <small>{{message.createdAt}}</small>
                     <br> {{ message.body }}
                 </p>
             </div>
@@ -19,14 +20,15 @@
     </article>
     <br>
     <div class="field">
-        <label class="label">Message</label>
+        <label class="label">New message from {{currentUser}}</label>
         <div class="control">
-            <textarea class="textarea" placeholder="New message"></textarea>
+            <textarea class="textarea" placeholder="New message" ng-model="currentMessage"></textarea>
         </div>
     </div>
     <div class="field">
         <div class="control">
-            <button class="button is-primary">Submit</button>
+            <button class="button is-primary" ng-click="postNewMessage()">Post</button>
+
         </div>
     </div>
 </div>

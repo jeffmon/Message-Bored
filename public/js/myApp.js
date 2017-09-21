@@ -29,7 +29,7 @@ angular
         })
         .when("/newTopic", {
           templateUrl: "newTopic.html",
-          controller: "topicsController"
+          controller: "newTopicController"
         })
         .otherwise({
           redirectTo: "/"
@@ -42,18 +42,23 @@ angular
     "$rootScope",
     "localStorageService",
     "$location",
-    function($rootScope, localStorageService, $location) {
-      $rootScope.userProfile = null;
+    "LoginService",
+    function($rootScope, localStorageService, $location, LoginService) {
+      $rootScope.currentUser = null;
+      $rootScope.currentUserId = null;
       (function(key) {
         if (localStorageService.keys().length === 0) {
-          $rootScope.userProfile = null;
+          $rootScope.currentUser = null;
         } else {
-          $rootScope.userProfile = localStorageService.keys();
+          $rootScope.currentUser = localStorageService.keys()[0];
+          LoginService.loginUser($rootScope.currentUser).then(res => {
+            $rootScope.currentUserId = res.id;
+          });
         }
       })();
-      console.log($rootScope.userProfile);
+      console.log($rootScope.currentUser);
       $rootScope.$on("$routeChangeStart", function(event, next, current) {
-        if ($rootScope.userProfile === null) {
+        if ($rootScope.currentUser === null) {
           if (
             next.templateUrl === "login.html" ||
             next.templateUrl === "register.html"
