@@ -9,7 +9,7 @@
             <div class="field">
                 <label class="label">Topic</label>
                 <div class="control">
-                    <input type="text" class="input is-success" placeholder="Topic" ng-model="currentTopic">
+                    <input type="text" class="input is-success" placeholder="Topic" ng-model="currentTopic" ng-keypress="($event.charCode==13)? newTopic() : return">
                 </div>
             </div>
         </div>
