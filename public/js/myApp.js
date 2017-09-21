@@ -27,6 +27,10 @@ angular
           templateUrl: "thread.html",
           controller: "topicsController"
         })
+        .when("/newTopic", {
+          templateUrl: "newTopic.html",
+          controller: "topicsController"
+        })
         .otherwise({
           redirectTo: "/"
         });
