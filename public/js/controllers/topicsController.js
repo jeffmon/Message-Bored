@@ -46,7 +46,6 @@ angular.module("myApp").controller("topicsController", [
         });
 
         $scope.currentMessages = convertedMessages;
-        console.log($scope.currentMessages);
       });
     };
 
@@ -56,7 +55,20 @@ angular.module("myApp").controller("topicsController", [
         $scope.currentUserId,
         currentTopicId
       ).then(() => {
-        $scope.loadMessages();
+        TopicsService.getMessages(currentTopicId).then(messages => {
+          var convertedMessages = messages.map(function(obj) {
+            var date = new Date(obj.createdAt);
+            var newObj = {
+              Author: obj.Author,
+              body: obj.body,
+              createdAt: date.toString()
+            };
+
+            return newObj;
+          });
+
+          $scope.currentMessages = convertedMessages;
+        });
         $scope.currentMessage = null;
       });
     };
