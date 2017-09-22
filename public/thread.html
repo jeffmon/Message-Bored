@@ -11,7 +11,7 @@
 
     <div class="card" ng-repeat="message in currentMessages" id="thread">
         <div class="card-content">
-            <p class="subtitle"><strong>{{message.Author.name}}</strong><small id="date"> {{message.createdAt}}</small></p>
+            <p class="subtitle"><strong>{{message.Author.name}}</strong><small id="date"> {{message.createdAt | date : 'medium'}}</small></p>
             <p class="content">{{message.body}}</p>
 
         </div>

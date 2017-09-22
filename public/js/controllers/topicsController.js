@@ -34,18 +34,7 @@ angular.module("myApp").controller("topicsController", [
 
     $scope.loadMessages = function() {
       TopicsService.getMessages(currentTopicId).then(messages => {
-        var convertedMessages = messages.map(function(obj) {
-          var date = new Date(obj.createdAt);
-          var newObj = {
-            Author: obj.Author,
-            body: obj.body,
-            createdAt: date.toString()
-          };
-
-          return newObj;
-        });
-
-        $scope.currentMessages = convertedMessages;
+        $scope.currentMessages = messages;
       });
     };
 

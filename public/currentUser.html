@@ -3,7 +3,8 @@
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title">{{currentUserData.name}}</h1>
-                <h2 class="subtitle">Joined on: {{currentUserData.createdAt}}</h2>
+                <h2 class="subtitle">Joined on: {{currentUserData.createdAt | date: 'medium'}}</h2>
+                <a href=""></a>
             </div>
         </div>
     </section>
@@ -14,8 +15,7 @@
         </header>
         <div class="card-content">
             <p class="content">Message: {{message.body}} </p>
-            <small id="date">{{message.createdAt}}</small>
+            <small id="date">{{message.createdAt | date : 'medium'}}</small>
         </div>
     </div>
-
 </div>
