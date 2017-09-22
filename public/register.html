@@ -9,7 +9,7 @@
             <div class="field">
                 <label class="label">Username</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input type="text" class="input is-success" placeholder="Text input" ng-model="user">
+                    <input type="text" class="input is-success" placeholder="Text input" ng-model="user" ng-keypress="($event.charCode==13)? register() : return">
                     <span class="icon is-small is-left">
                         <i class="fa fa-user"></i>
                     </span>

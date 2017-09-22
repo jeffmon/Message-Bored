@@ -31,6 +31,10 @@ angular
           templateUrl: "newTopic.html",
           controller: "newTopicController"
         })
+        .when("/users/:id", {
+          templateUrl: "currentUser.html",
+          controller: "currentUserController"
+        })
         .otherwise({
           redirectTo: "/"
         });

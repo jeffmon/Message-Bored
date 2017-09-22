@@ -6,6 +6,11 @@ angular.module("myApp").service("usersService", [
         return $http.get("/api/users").then(function(res) {
           return res.data;
         });
+      },
+      getUserData: function(userId) {
+        return $http.get(`/api/user/${userId}`).then(function(res) {
+          return res.data;
+        });
       }
     };
   }

@@ -8,16 +8,14 @@
         </div>
     </section>
     <br>
-    <article class="media">
-        <div class="media-content">
-            <div class="content">
-                <p ng-repeat="message in currentMessages">
-                    <strong>{{ message.Author.name }}</strong> <small>{{message.createdAt}}</small>
-                    <br> {{ message.body }}
-                </p>
-            </div>
+
+    <div class="card" ng-repeat="message in currentMessages">
+        <div class="card-content">
+            <p class="subtitle"><strong>{{message.Author.name}}</strong><small> {{message.createdAt}}</small></p>
+            <p class="content">{{message.body}}</p>
+
         </div>
-    </article>
+    </div>
     <br>
     <div class="field">
         <label class="label">New message from {{currentUser}}</label>

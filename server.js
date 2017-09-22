@@ -62,7 +62,14 @@ app.get(`/api/user/:id`, (req, res) => {
     include: [
       {
         model: Message,
-        as: "Messages"
+        as: "Messages",
+        order: [["createdAt", "DESC"]],
+        include: [
+          {
+            model: Topic,
+            as: "topicName"
+          }
+        ]
       }
     ]
   }).then(messages => {

@@ -6,6 +6,7 @@ angular.module("myApp").controller("usersController", [
 
     usersService.getUsers().then(users => {
       $scope.users = users;
+      console.log($scope.users);
     });
   }
 ]);
