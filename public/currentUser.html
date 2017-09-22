@@ -8,17 +8,14 @@
         </div>
     </section>
     <br>
-    <div class="card" ng-repeat="message in currentUserData.Messages">
+    <div class="card" ng-repeat="message in currentUserData.Messages" id="thread">
         <header class="card-header">
             <p class="card-header-title">Topic: {{message.topicName.name}} </p>
         </header>
         <div class="card-content">
             <p class="content">Message: {{message.body}} </p>
-            <small>Date: {{message.createdAt}}</small>
+            <small id="date">{{message.createdAt}}</small>
         </div>
-        <footer class="card-footer">
-            <small class="card-footer-item"></small>
-        </footer>
     </div>
 
 </div>

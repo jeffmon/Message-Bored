@@ -1,7 +1,3 @@
-#loginForm {
-  margin: 6rem;
-}
-
 .navbar-item {
   color: white;
 }
@@ -12,4 +8,8 @@
 
 #thread {
   margin: 3rem;
+}
+
+#date {
+  color: #9e9e9e;
 }

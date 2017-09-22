@@ -6,9 +6,7 @@ angular.module("myApp").controller("currentUserController", [
     $scope.currentUserData = null;
     var splitId = $location.$$path.split("/");
     var currentUserId = parseInt(splitId[splitId.length - 1]);
-    console.log(currentUserId);
     usersService.getUserData(currentUserId).then(res => {
-      console.log(res[0]);
       var date = new Date(res[0].createdAt);
       var convertedUser = {
         Messages: res[0].Messages.map(function(obj) {

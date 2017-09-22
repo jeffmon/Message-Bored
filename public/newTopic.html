@@ -1,20 +1,24 @@
-<div class="card" id="loginForm">
-    <header class="card-header">
-        <p class="card-header-title is-size-5">
-            Create a new topic!
-        </p>
-    </header>
-    <div class="card-content">
-        <div class="container is-mobile">
-            <div class="field">
-                <label class="label">Topic</label>
-                <div class="control">
-                    <input type="text" class="input is-success" placeholder="Topic" ng-model="currentTopic" ng-keypress="($event.charCode==13)? newTopic() : return">
+<div class="container">
+    <div class="card" id="thread">
+        <header class="card-header">
+            <p class="card-header-title is-size-5">
+                Create a new topic, {{currentUser}}!
+            </p>
+        </header>
+        <div class="card-content">
+            <div class="container is-mobile">
+                <div class="field">
+                    <label class="label">Topic</label>
+                    <div class="control">
+                        <input type="text" class="input is-success" placeholder="Topic" ng-model="currentTopic" ng-keypress="($event.charCode==13)? newTopic() : return">
+                    </div>
                 </div>
             </div>
         </div>
+        <footer class="card-footer">
+            <div class="card-footer-item">
+                <button class="button is-primary" ng-click="newTopic()">Submit</button>
+            </div>
+        </footer>
     </div>
-    <footer class="card-footer">
-        <a href="" class="card-footer-item" ng-click="newTopic()">Submit</a>
-    </footer>
 </div>
