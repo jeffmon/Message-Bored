@@ -11,17 +11,14 @@ angular.module("myApp").controller("registerController", [
 
     $scope.register = function(user) {
       if ($scope.user.length > 0) {
-        LoginService.registerUser($scope.user)
-          .then(res => {
-            if (res) {
-              localStorageService.set(res, "user");
-              $rootScope.currentUser = res;
-              $location.url("/home");
-            }
-          })
-          .then(() => {
-            $window.location.href = "/home";
-          });
+        LoginService.registerUser($scope.user).then(res => {
+          if (res) {
+            localStorageService.set(res, "user");
+            $rootScope.currentUser = res.name;
+            $rootScope.currentUserId = res.id;
+            $location.url("/home");
+          }
+        });
       } else {
         console.log(null);
       }

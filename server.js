@@ -20,8 +20,15 @@ app
       }
     })
       .then(() => {
-        User.findAll().then(users => {
-          res.json({ users: users, name: req.body.name });
+        // User.findAll().then(users => {
+        //   res.json({ users: users, name: req.body.name });
+        // });
+        User.findOne({
+          where: {
+            name: req.body.name
+          }
+        }).then(user => {
+          res.json(user);
         });
       })
       .catch(err => {
@@ -42,12 +49,9 @@ app
   });
 
 app.get(`/api/find/:user`, (req, res) => {
-  function capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
   User.findOne({
     where: {
-      name: capitalize(req.params.user)
+      name: req.params.user
     }
   }).then(user => {
     res.json(user);

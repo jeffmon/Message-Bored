@@ -23,7 +23,7 @@ angular.module("myApp").service("LoginService", [
             name: user
           }
         }).then(function(res) {
-          return res.data.name;
+          return res.data;
         });
       }
     };
