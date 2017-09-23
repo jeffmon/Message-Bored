@@ -64,17 +64,5 @@ angular
           });
         }
       })();
-      console.log($rootScope.currentUser);
-      $rootScope.$on("$routeChangeStart", function(event, next, current) {
-        if ($rootScope.currentUser === null) {
-          if (
-            next.templateUrl === "login.html" ||
-            next.templateUrl === "register.html"
-          ) {
-          } else {
-            $location.path("/login");
-          }
-        }
-      });
     }
   ]);

@@ -18,10 +18,10 @@
             <div class="navbar-menu is-active">
                 <div class="nav-center">
                     <a class="navbar-item" ng-href="/home">Home</a>
-                    <a class="navbar-item" ng-href="/" ng-if="isNotLoggedIn">Login</a>
-                    <a class="navbar-item" ng-href="/register" ng-if="isNotLoggedIn">Register</a>
+                    <a class="navbar-item" ng-href="/" ng-hide="currentUser">Login</a>
+                    <a class="navbar-item" ng-href="/register" ng-hide="currentUser">Register</a>
                     <a class="navbar-item" ng-href="/users">Users</a>
-                    <a class="navbar-item" ng-click="logOut()" ng-if="isLoggedIn">Log Out</a>
+                    <a class="navbar-item" ng-click="logOut()" ng-show="currentUser">Log Out</a>
                 </div>
 
             </div>
@@ -32,7 +32,7 @@
         <nav class="level">
             <div class="level-left">
                 <div class="level-item has-text-left">
-                    <a ng-href="/latest">Latest</a>
+                    <a ng-href="/latest"><strong>Latest</strong></a>
                 </div>
             </div>
 
@@ -42,8 +42,8 @@
 
             </div>
             <div class="level-right">
-                <div class="level-item has-text-right" ng-if="isLoggedIn">
-                    <a ng-href="/newTopic">New Topic</a>
+                <div class="level-item has-text-right" ng-show="currentUser">
+                    <a ng-href="/newTopic"><strong>New Topic</strong></a>
                 </div>
             </div>
 

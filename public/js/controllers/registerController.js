@@ -2,9 +2,9 @@ angular.module("myApp").controller("registerController", [
   "$scope",
   "LoginService",
   "localStorageService",
-  "$window",
-  function($scope, LoginService, localStorageService, $window) {
-    console.log("test");
+  "$location",
+  "$rootScope",
+  function($scope, LoginService, localStorageService, $location, $rootScope) {
     $scope.user = null;
     $scope.isNotLoggedIn = true;
     $scope.isLoggedIn = false;
@@ -14,7 +14,9 @@ angular.module("myApp").controller("registerController", [
         LoginService.registerUser($scope.user)
           .then(res => {
             if (res) {
-              return localStorageService.set(res, "user");
+              localStorageService.set(res, "user");
+              $rootScope.currentUser = res;
+              $location.url("/home");
             }
           })
           .then(() => {

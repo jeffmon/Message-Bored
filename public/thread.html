@@ -17,13 +17,13 @@
         </div>
     </div>
     <br>
-    <div class="field">
+    <div class="field" ng-show="currentUser">
         <label class="label">New message from {{currentUser}}</label>
         <div class="control">
             <textarea class="textarea" placeholder="New message" ng-model="currentMessage" ng-keypress="($event.charCode==13) ? postNewMessage() : return"></textarea>
         </div>
     </div>
-    <div class="field">
+    <div class="field" ng-show="currentUser">
         <div class="control">
             <button class="button is-primary" ng-click="postNewMessage()" type="submit">Post</button>
 
