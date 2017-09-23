@@ -1,0 +1,20 @@
+<div class="container">
+    <section class="hero is-warning">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">Latest Messages</h1>
+            </div>
+        </div>
+    </section>
+    <br>
+
+    <div class="card" ng-repeat="message in messages" id="thread">
+        <header class="card-header">
+            <p class="card-header-title">Topic: {{message.topicName.name}}, By: {{message.Author.name}}</p>
+        </header>
+        <div class="card-content">
+            <p class="content">{{message.body}}</p>
+            <small id="date">{{message.createdAt | date : 'medium'}}</small>
+        </div>
+    </div>
+</div>

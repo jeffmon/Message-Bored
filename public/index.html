@@ -14,7 +14,7 @@
 
 <body ng-app="myApp">
     <div class="container is-mobile" ng-controller="loginController">
-        <nav class="navbar is-mobile is-primary" role="navigation">
+        <div class="navbar is-mobile is-primary" role="navigation">
             <div class="navbar-menu is-active">
                 <div class="nav-center">
                     <a class="navbar-item" ng-href="/home">Home</a>
@@ -25,22 +25,27 @@
                 </div>
 
             </div>
-        </nav>
+        </div>
     </div>
 
-    <div class="container is-mobile" ng-controller="topicsController">
-        <nav class="navbar is-mobile is-dark">
-            <div class="navbar-menu is-active">
-                <div class="nav-center">
-                    <a ng-repeat=" topic in topics" ng-href="/topics/{{topic.id}}" class="navbar-item"> {{ topic.name }} </a>
+    <div class="container is-mobile" ng-controller="topicsController" id="topics">
+        <nav class="level">
+            <div class="level-left">
+                <div class="level-item has-text-left">
+                    <a ng-href="/latest">Latest</a>
                 </div>
             </div>
 
+            <div class="level-item has-text-centered" ng-repeat=" topic in topics">
 
-            <div class="navbar-end" ng-if="isLoggedIn">
-                <a class="navbar-item" ng-href="/newTopic">New Topic</a>
+                <div class="level-item" id="topicsLine"><a ng-href="/topics/{{topic.id}}">{{ topic.name }}</a></div>
+
             </div>
-
+            <div class="level-right">
+                <div class="level-item has-text-right" ng-if="isLoggedIn">
+                    <a ng-href="/newTopic">New Topic</a>
+                </div>
+            </div>
 
 
         </nav>
@@ -61,9 +66,11 @@
     <script src="./js/controllers/topicsController.js" type="text/javascript"></script>
     <script src="./js/controllers/threadController.js" type="text/javascript"></script>
     <script src="./js/controllers/newTopicController.js" type="text/javascript"></script>
+    <script src="./js/controllers/latestController.js" type="text/javascript"></script>
     <script src="./js/services/topicsService.js" type="text/javascript"></script>
-    <script src="./js/services/usersService.js" type="text/javascript"></script>
+    <script src="./js/services/UsersService.js" type="text/javascript"></script>
     <script src="./js/services/loginService.js" type="text/javascript"></script>
+    <script src="./js/services/latestService.js" type="text/javascript"></script>
 
 </body>
 

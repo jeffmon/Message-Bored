@@ -1,4 +1,4 @@
-angular.module("myApp").service("usersService", [
+angular.module("myApp").service("UsersService", [
   "$http",
   function($http) {
     return {

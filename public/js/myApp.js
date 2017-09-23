@@ -35,6 +35,10 @@ angular
           templateUrl: "currentUser.html",
           controller: "currentUserController"
         })
+        .when("/latest", {
+          templateUrl: "latest.html",
+          controller: "latestController"
+        })
         .otherwise({
           redirectTo: "/"
         });

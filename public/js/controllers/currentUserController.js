@@ -1,12 +1,12 @@
 angular.module("myApp").controller("currentUserController", [
   "$scope",
-  "usersService",
+  "UsersService",
   "$location",
-  function($scope, usersService, $location) {
+  function($scope, UsersService, $location) {
     $scope.currentUserData = null;
     var splitId = $location.$$path.split("/");
     var currentUserId = parseInt(splitId[splitId.length - 1]);
-    usersService.getUserData(currentUserId).then(res => {
+    UsersService.getUserData(currentUserId).then(res => {
       $scope.currentUserData = res[0];
     });
   }
